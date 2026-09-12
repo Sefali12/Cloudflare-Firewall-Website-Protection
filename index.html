@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Test Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+        .shield-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0aec0;
+            margin-bottom: 30px;
+        }
+        .status-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status-card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .info-item span {
+            display: block;
+            color: #a0aec0;
+            font-size: 0.85rem;
+        }
+        .info-item strong {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        footer {
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shield-icon">🛡️</div>
+        <h1>Cloud Firewall Demo</h1>
+        <p class="subtitle">Protected by Cloudflare WAF</p>
+        
+        <div class="status-card">
+            <h3><span class="status-indicator"></span>Protection Active</h3>
+            <p>This website is protected by a cloud-based firewall with WAF rules, rate limiting, and bot protection enabled.</p>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Firewall</span>
+                <strong>Cloudflare</strong>
+            </div>
+            <div class="info-item">
+                <span>WAF Status</span>
+                <strong>Enabled</strong>
+            </div>
+            <div class="info-item">
+                <span>SSL/TLS</span>
+                <strong>Full (Strict)</strong>
+            </div>
+            <div class="info-item">
+                <span>Bot Protection</span>
+                <strong>Active</strong>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Cloud-Based Firewall Project | Internship 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
