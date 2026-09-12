@@ -1,0 +1,83 @@
+PROMPT (Copy-Paste into any PPT/AI Slide Generator)
+
+Create a professional 5-slide PowerPoint presentation about my internship project: “Design of a Cloud-Based Firewall for Website Protection” implemented using Cloudflare.
+
+Hard constraints:
+- MAX 5 slides only.
+- Clean, modern, technical style (blue/white theme). Use minimal text, strong visuals.
+- Audience: judges/teachers in a competition; assume they know basic web concepts but not Cloudflare details.
+- Mention the real deployment: domain sohamkunduivar.me, origin hosting GitHub Pages, Cloudflare Free plan.
+- Include proof-based results: 29 security tests, 100% blocked; DDoS/rate limiting triggered HTTP 429; WAF OWASP Core Ruleset (PL2) enabled.
+- Do NOT add extra slides beyond 5.
+
+Assets to include (use placeholders if not provided):
+- Screenshot placeholder: Cloudflare dashboard Security Events showing blocks (403) and rate limiting (429).
+- Screenshot placeholder: WAF Managed Rules / OWASP Core Ruleset enabled.
+- Diagram: traffic flow (User → Cloudflare Edge → GitHub Pages Origin).
+
+Slide-by-slide content (must follow exactly):
+
+SLIDE 1 — Title & Objective
+Title: Cloud-Based Firewall for Website Protection (Cloudflare WAF)
+Subtitle: Internship Project | Sefali Gupta | January 2026
+Bullets (max 4):
+- Goal: Protect a live website from common web attacks using a cloud-based firewall
+- Deployment: sohamkunduivar.me (DNS + proxy via Cloudflare)
+- Origin hosting: GitHub Pages
+- Approach: layered security (WAF + custom rules + rate limiting + monitoring)
+Visual: simple shield + cloud + web icon row
+
+SLIDE 2 — Architecture (How it Works)
+Title: Architecture: Cloudflare as Edge Firewall
+Bullets (max 4):
+- Traffic is routed through Cloudflare (reverse proxy at the edge)
+- Cloudflare inspects every HTTP/HTTPS request before it reaches origin
+- Malicious traffic is blocked/challenged at the edge; clean traffic reaches GitHub Pages
+- SSL/TLS Full (Strict) ensures encrypted communication
+Visual: diagram
+User/Internet → Cloudflare Edge (DDoS + WAF + Custom Rules + Bot Protection + Rate Limiting) → Origin (GitHub Pages)
+Add a small note: “Cloudflare Free Tier used”
+
+SLIDE 3 — Security Controls Implemented
+Title: Security Controls (Rules + WAF)
+Bullets (max 6, short):
+- 5 Custom Firewall Rules:
+  - SQL Injection blocking
+  - XSS / Script injection blocking
+  - Malicious bots/scanner blocking
+  - Path traversal / sensitive file access blocking
+  - Geo-based risk control
+- WAF enabled: Cloudflare Managed Rules + OWASP Core Ruleset (PL2)
+- Bot Fight Mode enabled
+- Rate limiting: 50 requests / 10 seconds (DDoS & brute-force reduction)
+Visual: table with “Threat → Control → Action (Block/Challenge)”
+
+SLIDE 4 — Testing & Validation (Proof)
+Title: Testing Results (Attack Simulation)
+Bullets (max 5):
+- Tested using curl (Windows) + PowerShell scripts
+- Total tests: 29 | Passed: 29 | Success rate: 100%
+- SQL Injection: 6/6 blocked (HTTP 403)
+- XSS: 13/13 blocked (HTTP 403)
+- Bots: 6/6 blocked (HTTP 403); Path traversal: 4/4 blocked (HTTP 403)
+- Rate limiting verified via parallel bursts → HTTP 429 “Too Many Requests”
+Visual: bar chart or stacked summary + screenshot placeholder: Cloudflare Security Events logs
+
+SLIDE 5 — Impact, Learnings, Future Scope
+Title: Impact & Future Scope
+Bullets (max 6):
+- Enterprise-style protection achieved on a cost-effective cloud setup
+- Suitable for small websites that lack expensive security infrastructure
+- Benefits: reduced attack surface, real-time blocking, security visibility via analytics
+- Covered OWASP categories like access control and injection via WAF + custom rules
+- Future: expand OWASP Top 10 testing, tighter per-endpoint rate limits for login/admin
+- Future: automate rule updates using threat intelligence
+Visual: 3-column layout: Impact | Evidence | Next Steps
+
+Speaker notes (short, include under each slide):
+- Write 2–3 lines explaining what to say for that slide.
+
+Output requirements:
+- Provide slide titles, bullets, and suggested visuals exactly as above.
+- Keep text concise; avoid paragraphs on slides.
+- Use consistent icons and spacing.

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Area - Redirecting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+        .redirect-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #ddd;
+            margin: 10px 0;
+        }
+        .info {
+            background: rgba(52, 199, 89, 0.2);
+            border: 2px solid #34c759;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="redirect-icon">🔃</div>
+        <h1>Admin Area</h1>
+        <p>Redirecting to login page...</p>
+        
+        <div class="info">
+            <p><strong>🛡️ Protected by Cloudflare WAF</strong></p>
+            <p>This admin area requires authentication</p>
+        </div>
+    </div>
+    
+    <script>
+        // Redirect to login page after 1 second
+        setTimeout(function() {
+            window.location.href = 'login.html';
+        }, 1000);
+    </script>
+</body>
+</html>

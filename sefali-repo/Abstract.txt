@@ -1,0 +1,14 @@
+
+Cloud-Based Firewall Using Cloudflare to Protect Websites from Common Web Attacks
+
+Web applications are widely used for business and personal services, but they are increasingly targeted by automated cyberattacks such as SQL Injection, Cross-Site Scripting (XSS), malicious bot scanning, and application-layer denial-of-service attempts. These attacks can lead to data leakage, defacement, and downtime, and the risk is higher today because attackers can reuse common payloads at scale.
+
+Small and medium websites are often the most affected because they lack dedicated security teams and affordable, enterprise-grade firewall infrastructure, leaving common OWASP-style attacks insufficiently mitigated.
+
+This project implements a cloud-based firewall using Cloudflare as an edge security layer in front of a live website. Incoming HTTP/HTTPS requests are routed through Cloudflare (reverse proxy), inspected at the edge, and only clean traffic is forwarded to the origin (GitHub Pages). The solution uses a rule-based approach with five custom firewall rules to block SQLi patterns, XSS payloads, path traversal/sensitive file access, and malicious bots/scanners. Cloudflare’s managed WAF and OWASP Core Ruleset (PL2) were enabled for broader coverage, along with Bot Fight Mode and SSL/TLS Full (Strict). A rate limiting policy (50 requests per 10 seconds) was configured to reduce brute-force and flooding behavior.
+
+Implementation was validated through controlled attack simulations using curl (Windows) and PowerShell automation against the protected domain (sohamkunduivar.me). A total of 29 security tests were executed across SQL Injection (6), XSS (13), malicious bots (6), and path traversal (4), and all malicious requests were blocked with HTTP 403 responses. Rate limiting was verified with parallel request bursts (70 concurrent requests), which triggered HTTP 429 “Too Many Requests” responses.
+
+The results demonstrate that enterprise-style protection can be achieved using a lightweight, cost-effective cloud firewall on Cloudflare’s free tier, with monitoring available through Cloudflare security events.
+
+Future work can extend testing across the full OWASP Top 10, refine per-endpoint rate limiting (especially for login paths), and automate rule updates using threat intelligence.

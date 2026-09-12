@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        .navbar h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logout-btn {
+            padding: 8px 20px;
+            background: rgba(255, 59, 48, 0.8);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .logout-btn:hover {
+            background: rgba(255, 59, 48, 1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        .welcome-card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .username {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.3);
+            border: 2px solid #34c759;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .card p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        .security-info {
+            background: rgba(52, 199, 89, 0.2);
+            border: 2px solid #34c759;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .security-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .check {
+            color: #34c759;
+            font-size: 20px;
+        }
+        .welcome-text {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>
+            <span>🛡️</span>
+            Admin Dashboard
+        </h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="welcome-card">
+            <div class="success-icon">✅</div>
+            <h1>Welcome, <span class="username" id="adminName">Admin</span>!</h1>
+            <p class="welcome-text">Successfully logged in as administrator</p>
+            <div class="status-badge">
+                🟢 Session Active
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>User Management</h3>
+                <p>Manage user accounts, permissions, and access controls</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Security Analytics</h3>
+                <p>View security events, blocked attacks, and traffic patterns</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Firewall Settings</h3>
+                <p>Configure WAF rules, custom filters, and rate limiting</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Reports</h3>
+                <p>Generate security reports and compliance documentation</p>
+            </div>
+        </div>
+
+        <div class="security-info">
+            <h3>
+                <span>🛡️</span>
+                Security Status
+            </h3>
+            <div class="security-item">
+                <span class="check">✓</span>
+                <span>Protected by Cloudflare WAF</span>
+            </div>
+            <div class="security-item">
+                <span class="check">✓</span>
+                <span>SSL/TLS Full (Strict) enabled</span>
+            </div>
+            <div class="security-item">
+                <span class="check">✓</span>
+                <span>Bot Fight Mode active</span>
+            </div>
+            <div class="security-item">
+                <span class="check">✓</span>
+                <span>5 Custom firewall rules deployed</span>
+            </div>
+            <div class="security-item">
+                <span class="check">✓</span>
+                <span>Rate limiting configured</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is authenticated
+        window.onload = function() {
+            const isAuth = sessionStorage.getItem('adminAuth');
+            const username = sessionStorage.getItem('adminUser');
+            
+            if (!isAuth || isAuth !== 'true') {
+                // Not authenticated, redirect to login
+                window.location.href = 'index.html';
+            } else {
+                // Display username
+                document.getElementById('adminName').textContent = username;
+            }
+        };
+
+        function logout() {
+            // Clear session
+            sessionStorage.removeItem('adminAuth');
+            sessionStorage.removeItem('adminUser');
+            
+            // Redirect to login
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
